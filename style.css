@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #8360c3;
+  background: -webkit-linear-gradient(to right, #2ebf91, #8360c3);
+  background: linear-gradient(to right, #2ebf91, #8360c3);
+}
+
+#food_items {
+  max-width: 960px;
+  margin: 0 auto;
+  margin-top: 80px;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  background: #bdc3c7;
+  background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);
+  background: linear-gradient(to right, #2c3e50, #bdc3c7);
+}
+
+.food {
+  /* margin: 50px; */
+  margin: 30px 0;
+}
+
+input {
+  width: 250px !important;
+}
+
+.img_meal{
+  width: 200px;
+  border-radius: 5px;
+}
+
+.img_meal_recipe{
+  width: 588px;
+  height: 322px;
+}
+
+#food_recipe{
+  display: flex;
+  justify-content: center;
+}
+.c_pointer{
+  cursor: pointer;
+}
+
+h2{
+  max-width: 570px;
+}
