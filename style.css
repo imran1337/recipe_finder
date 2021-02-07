@@ -5,9 +5,9 @@
 }
 
 body {
-  background: #8360c3;
-  background: -webkit-linear-gradient(to right, #2ebf91, #8360c3);
-  background: linear-gradient(to right, #2ebf91, #8360c3);
+  background: #c9d6ff;
+  background: -webkit-linear-gradient(to top, #e2e2e2, #d4ddfc);
+  background: linear-gradient(to top, #e2e2e2, #d7dcee);
 }
 
 #food_items {
@@ -17,9 +17,16 @@ body {
   text-align: center;
   padding: 20px;
   border-radius: 10px;
-  background: #bdc3c7;
-  background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);
-  background: linear-gradient(to right, #2c3e50, #bdc3c7);
+  background: #ada996;
+  background: -webkit-linear-gradient(
+    to bottom,
+    #eaeaea,
+    #dbdbdb,
+    #f2f2f2,
+    #ada996
+  );
+  background: linear-gradient(to bottom, #eaeaea, #dbdbdb, #f2f2f2, #c7c4b8);
+  /* transform: skew(-1deg); */
 }
 
 .food {
@@ -31,24 +38,44 @@ input {
   width: 250px !important;
 }
 
-.img_meal{
+.img_meal {
   width: 200px;
   border-radius: 5px;
 }
 
-.img_meal_recipe{
-  width: 588px;
-  height: 322px;
+.img_meal_recipe {
+  width: 100%;
+  max-height: 322px;
+  border-radius: 10px;
 }
 
-#food_recipe{
+#food_recipe {
   display: flex;
   justify-content: center;
+  padding: 10px;
 }
-.c_pointer{
+.c_pointer {
   cursor: pointer;
 }
 
-h2{
+h2 {
   max-width: 570px;
+}
+
+footer {
+  margin-top: 60px;
+}
+
+span {
+  display: block;
+  margin-top: 15px;
+  border-bottom: 1px solid rgba(116, 114, 114, 0.131);
+}
+
+a {
+  text-decoration: none;
+}
+
+#food_items {
+  visibility: hidden;
 }
