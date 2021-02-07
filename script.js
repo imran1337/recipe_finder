@@ -21,7 +21,7 @@ function displayMealData(mealLists) {
 
     newMealLists.forEach((meal) => {
       const { strMeal, strMealThumb, idMeal } = meal;
-      let div = document.createElement("div");
+      const div = document.createElement("div");
 
       div.innerHTML = `
       <a href="#food_recipe">
