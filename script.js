@@ -132,39 +132,3 @@ function displayRecipes(recipesVar, divVar) {
     divVar.appendChild(span);
   });
 }
-
-/**
- * fist method
- */
-// const div = document.createElement("div");
-// // lop object property
-// const ul = document.createElement("ul");
-// for (let i = 1; i < 21; i++) {
-//   let ingredients;
-//   let measure;
-//   if (
-//     recipes[`strIngredient${i}`] == "" ||
-//     recipes[`strMeasure${i}`] == " "
-//   ) {
-//     continue;
-//   } else {
-//     ingredients = recipes[`strIngredient${i}`];
-//     measure = recipes[`strMeasure${i}`];
-//   }
-
-//   const li = document.createElement("li");
-
-//   li.innerText = `${ingredients} ${measure}`;
-//   ul.appendChild(li);
-// }
-
-// div.innerHTML = `
-// <img
-//         src="${strMealThumb}"
-//         class="img_meal_recipe"
-//         alt="food image"
-//       />
-//       <h2 class="mt-3">${strMeal}</h2>
-//       <h4 class="mt-4">Ingredients</h4>
-//       ${ul.innerHTML}
-// `;
