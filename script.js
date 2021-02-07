@@ -82,9 +82,6 @@ function showRecipeDetails(recipe) {
 
     displayRecipes(getRecipe(recipes, "measure"), divMeasure);
     displayRecipes(getRecipe(recipes, "ingredient"), divIngredient);
-    getRecipe(recipes, "measure").forEach((e) => {
-      console.log(e);
-    });
 
     div.innerHTML = `
     <img src="${strMealThumb}"class="img_meal_recipe" alt="food image"/>
