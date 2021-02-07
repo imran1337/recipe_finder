@@ -5,9 +5,9 @@
 }
 
 body {
-  background: #c9d6ff;
-  background: -webkit-linear-gradient(to top, #e2e2e2, #d4ddfc);
-  background: linear-gradient(to top, #e2e2e2, #d7dcee);
+  background: #f12711;
+  background: -webkit-linear-gradient(to right, #f5af19, #f12711);
+  background: linear-gradient(to right, #f5af19, #f12711bb);
 }
 
 #food_items {
@@ -25,8 +25,7 @@ body {
     #f2f2f2,
     #ada996
   );
-  background: linear-gradient(to bottom, #eaeaea, #dbdbdb, #f2f2f2, #c7c4b8);
-  /* transform: skew(-1deg); */
+  background: linear-gradient(to bottom, #eaeaea60, #dbdbdb, #f2f2f2, #c7c4b8bf);
 }
 
 .food {
