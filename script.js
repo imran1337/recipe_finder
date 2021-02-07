@@ -73,19 +73,17 @@ function showRecipeDetails(recipe) {
       strYoutube,
       strSource,
     } = recipes;
-    /**
-     * second method
-     */
+  
     const div = document.createElement("div");
     const divIngredient = document.createElement("div");
     const divMeasure = document.createElement("div");
 
-    displayRecipes(getRecipe(recipes, "measure"), divMeasure);
-    displayRecipes(getRecipe(recipes, "ingredient"), divIngredient);
+    displayRecipes(getRecipes(recipes, "measure"), divMeasure);
+    displayRecipes(getRecipes(recipes, "ingredient"), divIngredient);
 
     div.innerHTML = `
     <img src="${strMealThumb}"class="img_meal_recipe" alt="food image"/>
-          <h2 class="mt-3">${strMeal}</h2>
+          <h1 class="mt-3">${strMeal}</h1>
           <h4 class="mt-4">Ingredients</h4>
           <div style="display: flex;">
           <div style="width: 300px; font-weight: bold;">${divMeasure.innerHTML}</div> <div> ${divIngredient.innerHTML}</div>
@@ -109,7 +107,7 @@ function showRecipeDetails(recipe) {
 }
 
 // get filtered recipes
-function getRecipe(obj, filterString) {
+function getRecipes(obj, filterString) {
   const filteredRecipes = Object.keys(obj)
     .filter((d) => d.toLowerCase().indexOf(filterString.toLowerCase()) !== -1)
     .reduce((p, c) => {
