@@ -68,7 +68,7 @@ function showRecipeDetails(mealsData) {
     const { strMeal, strMealThumb, strInstructions } = recipes;
     const div = document.createElement("div");
     const ul = document.createElement("ul");
-    // concat recipes data
+    // loop recipes data
     const ingredients = getRecipes(recipes, "ingredient");
     const measures = getRecipes(recipes, "measure");
     ingredients.forEach((e, i) => {
