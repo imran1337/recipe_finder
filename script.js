@@ -4,8 +4,7 @@ const foodContainer = document.getElementById("food_container");
 const foodRecipe = document.getElementById("food_recipe");
 
 function getMealData(mealName) {
-  const baseUrl = `https://www.themealdb.com/api/json/v1/1/search.php?s=${mealName}`;
-  fetch(baseUrl)
+  fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${mealName}`)
     .then((res) => res.json())
     .then((data) => displayMealData(data.meals))
     .catch((err) => console.log(err));
@@ -53,8 +52,7 @@ btn.addEventListener("click", () => {
 // recipe details function
 function getMealDetails(generatedDiv, mealId) {
   generatedDiv.addEventListener("click", () => {
-    const baseUrl = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`;
-    fetch(baseUrl)
+    fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
       .then((res) => res.json())
       .then((data) => showRecipeDetails(data.meals))
       .catch((err) => console.log(err));
