@@ -39,7 +39,7 @@ function displayMealData(mealLists) {
 
 // search btn
 btn.addEventListener("click", () => {
-  if(input.value.length !== 0){
+  if(input.value.length !== 0 && input.value !== " "){
     getMealData(input.value);
     foodContainer.innerHTML = "";
   }else{
