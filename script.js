@@ -75,7 +75,7 @@ function showRecipeDetails(mealsData) {
     const measures = getRecipes(recipes, "measure");
     ingredients.forEach((e, i) => {
       const li = document.createElement("li");
-      li.innerHTML = `<span class="fa-li"><i class="fas fa-check-square"></i></span> ${e} ${measures[i]}`;
+      li.innerHTML = `<span class="fa-li"><i class="fas fa-check-square"></i></span> ${measures[i]} ${e}`;
       ul.appendChild(li);
     });
 

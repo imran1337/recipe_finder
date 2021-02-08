@@ -38,6 +38,9 @@ input {
   width: 250px !important;
 }
 
+input.icon::-webkit-input-placeholder {
+  font-family:'FontAwesome';
+}
 
 .img_meal {
   width: 200px;
@@ -73,3 +76,4 @@ button {
 span{
   color: #F06C4E;
 }
+
