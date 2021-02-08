@@ -16,21 +16,18 @@ function displayMealData(mealLists) {
   if (mealLists === null) {
     foodContainer.innerHTML = `<h1>Search item Not Found</h1>`;
   } else {
-    // const newMealLists = mealLists.slice(0, 8);
-    const newMealLists = mealLists;
-
-    newMealLists.forEach((meal) => {
+    mealLists.forEach((meal) => {
       const { strMeal, strMealThumb, idMeal } = meal;
       const div = document.createElement("div");
 
       div.innerHTML = `
       <a href="#food_recipe">
-      <img src="${strMealThumb}" class="img_meal" alt="meal image">
-      <h6 class="mt-2">${strMeal}</h6>
+      <img src="${strMealThumb}" class="img_meal img-fluid" alt="meal image">
+      <h4 class="mt-2">${strMeal}</h4>
       </a>
         `;
 
-      div.classList.add("food", "col-6", "col-sm-4", "col-md-3", "c_pointer");
+      div.classList.add("food", "col-6", "col-sm-4", "col-md-3", "col-lg-2");
 
       foodContainer.appendChild(div);
 
@@ -42,8 +39,12 @@ function displayMealData(mealLists) {
 
 // search btn
 btn.addEventListener("click", () => {
-  getMealData(input.value);
-  foodContainer.innerHTML = "";
+  if(input.value.length !== 0){
+    getMealData(input.value);
+    foodContainer.innerHTML = "";
+  }else{
+    foodContainer.innerHTML = `<h1>Please Write Something</h1>`
+  }
   foodRecipe.innerHTML = "";
   input.value = "";
   document.getElementById("food_items").style.visibility = "visible";
@@ -61,44 +62,32 @@ function getMealDetails(generatedDiv, mealId) {
   });
 }
 
-function showRecipeDetails(recipe) {
-  if (recipe === null) {
+function showRecipeDetails(mealsData) {
+  if (mealsData === null) {
     foodRecipe.innerHTML = `<h1 class="mt-5 text-capitalize">Something went wrong. data not found</h1>`;
   } else {
-    const recipes = recipe[0];
-    const {
-      strMeal,
-      strMealThumb,
-      strInstructions,
-      strYoutube,
-      strSource,
-    } = recipes;
-  
+    const recipes = mealsData[0];
+    const { strMeal, strMealThumb, strInstructions } = recipes;
     const div = document.createElement("div");
-    const divIngredient = document.createElement("div");
-    const divMeasure = document.createElement("div");
-
-    displayRecipes(getRecipes(recipes, "measure"), divMeasure);
-    displayRecipes(getRecipes(recipes, "ingredient"), divIngredient);
+    const ul = document.createElement("ul");
+    // concat recipes data
+    const ingredients = getRecipes(recipes, "ingredient");
+    const measures = getRecipes(recipes, "measure");
+    ingredients.forEach((e, i) => {
+      const li = document.createElement("li");
+      li.innerHTML = `<span class="fa-li"><i class="fas fa-check-square"></i></span> ${e} ${measures[i]}`;
+      ul.appendChild(li);
+    });
 
     div.innerHTML = `
     <img src="${strMealThumb}"class="img_meal_recipe" alt="food image"/>
           <h1 class="mt-3">${strMeal}</h1>
           <h4 class="mt-4">Ingredients</h4>
-          <div style="display: flex;">
-          <div style="width: 300px; font-weight: bold;">${divMeasure.innerHTML}</div> <div> ${divIngredient.innerHTML}</div>
-          </div>
-          <div style="width:400px; white-space: pre-line;">
-          <h3 class="mt-4">Instructions</h3>
-          ${strInstructions}
-          </div>
-          <div style="width:400px; white-space: pre-line;">
-          <h3 class="mt-2">Recipe Source</h3>
-          <div style="display:flex;">
-          <a href=" ${strSource}" target="_blank">Source</a>
-          <a class="ps-3" href=" ${strYoutube}" target="_blank">Youtube</a>
-          </div>
-          </div>
+        <ul class="fa-ul"> ${ul.innerHTML}</ul>
+        <div style="max-width: 600px; white-space: pre-line;">
+         <h3>Instructions</h3>
+         ${strInstructions}
+         </div>
           
     `;
     div.classList.add("mt-5");
@@ -111,19 +100,10 @@ function getRecipes(obj, filterString) {
   const filteredRecipes = Object.keys(obj)
     .filter((d) => d.toLowerCase().indexOf(filterString.toLowerCase()) !== -1)
     .reduce((p, c) => {
-      if (obj[c] !== "" && obj[c] !== " ") {
+      if (obj[c] !== null && obj[c] !== "" && obj[c] !== " ") {
         p.push(obj[c]);
       }
       return p;
     }, []);
   return filteredRecipes;
-}
-
-// display recipes
-function displayRecipes(recipesVar, divVar) {
-  recipesVar.forEach((recipe) => {
-    const span = document.createElement("span");
-    span.innerText = recipe;
-    divVar.appendChild(span);
-  });
 }
